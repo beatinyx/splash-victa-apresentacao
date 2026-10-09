@@ -46,7 +46,7 @@
       <div class="copy">
         <p class="eyebrow">01 · Splash screen</p>
         <h2>A abertura, como o usuário vê</h2>
-        <p class="lede">2,8 segundos: o contorno do V é desenhado, o V é preenchido e o logotipo completo se forma. As duas telas tocam em sincronia, no tamanho real de cada plataforma.</p>
+        <p class="lede">2,8 segundos: a abertura parte da assinatura do ícone — três V desenhados em contorno —, preenche o V da marca, desvira-o e forma o logotipo completo. As duas telas tocam em sincronia, no tamanho real de cada plataforma.</p>
         <div class="howto">
           <h3>Como usar esta tela</h3>
           <ol>
@@ -227,19 +227,19 @@ LaunchedEffect(progress) { if (progress == 1f) onFinish() }</code></pre></div>
         <div class="variants" id="iosVariants" role="radiogroup" aria-label="Aparência do ícone iOS">
           <button role="radio" aria-checked="true" data-mode="default">
             <img src="assets/icons/ios-default.svg" alt="">
-            <span><b>Padrão</b> V verde sobre neon. É o ícone principal, usado no modo claro e na App Store.</span>
+            <span><b>Padrão</b> Três V verdes sobre neon. É o ícone principal, usado no modo claro e na App Store.</span>
           </button>
           <button role="radio" aria-checked="false" data-mode="dark">
             <img src="assets/icons/ios-dark.svg" alt="">
-            <span><b>Escuro</b> V verde sobre verde mata. Aparece quando a tela de início está no modo escuro.</span>
+            <span><b>Escuro</b> Três V verdes sobre verde mata. Aparece quando a tela de início está no modo escuro.</span>
           </button>
           <button role="radio" aria-checked="false" data-mode="tinted">
             <img src="assets/icons/ios-tinted.svg" alt="">
-            <span><b>Tingido</b> V branco sobre preto, em tons de cinza. O sistema pinta com a cor que o usuário escolher.</span>
+            <span><b>Tingido</b> Três V brancos sobre preto, em tons de cinza. O sistema pinta com a cor que o usuário escolher.</span>
           </button>
           <button role="radio" aria-checked="false" data-mode="mono">
             <img src="assets/icons/ios-monochrome.svg" alt="">
-            <span><b>Monocromático</b> V branco sobre o verde da marca. Referência de uma cor só (ex.: modo Mono no Icon Composer).</span>
+            <span><b>Monocromático</b> Três V em verde mata sobre o verde da marca. Referência de uma cor só (ex.: modo Mono no Icon Composer).</span>
           </button>
         </div>
         <p class="note"><b>Na entrega:</b> PNG 1024 × 1024, <b>quadrado e sem cantos arredondados</b>, sem transparência no Padrão. O iOS aplica a máscara de cantos sozinho.</p>
@@ -266,11 +266,11 @@ LaunchedEffect(progress) { if (progress == 1f) onFinish() }</code></pre></div>
       <div class="copy">
         <p class="eyebrow">05 · Ícones do app</p>
         <h2>Android: ícone adaptável</h2>
-        <p class="lede">No Android o ícone é montado pelo sistema a partir de duas camadas. Cada fabricante recorta com um formato diferente — por isso o V precisa caber na zona segura.</p>
+        <p class="lede">No Android o ícone é montado pelo sistema a partir de duas camadas. Cada fabricante recorta com um formato diferente — por isso os três V precisam caber na zona segura.</p>
         <div class="layers" aria-label="Camadas do ícone adaptável">
           <figure><div class="layer-tile"><img src="assets/icons/android-background.svg" alt="Camada de fundo: neon chapado"></div><figcaption>Fundo</figcaption></figure>
           <span class="op" aria-hidden="true">+</span>
-          <figure><div class="layer-tile checker"><img src="assets/icons/android-foreground.svg" alt="Camada da frente: V verde sobre transparente"></div><figcaption>Frente</figcaption></figure>
+          <figure><div class="layer-tile checker"><img src="assets/icons/android-foreground.svg" alt="Camada da frente: três V verdes sobre transparente"></div><figcaption>Frente</figcaption></figure>
           <span class="op" aria-hidden="true">=</span>
           <figure><div class="adaptive big" id="adaptiveBig"></div><figcaption>Resultado</figcaption></figure>
         </div>
@@ -287,7 +287,7 @@ LaunchedEffect(progress) { if (progress == 1f) onFinish() }</code></pre></div>
           <label class="toggle"><input type="checkbox" id="safeToggle"><span></span>Mostrar zona segura</label>
           <label class="toggle"><input type="checkbox" id="themedToggle"><span></span>Ícone temático (Android 13+)</label>
         </div>
-        <p class="note" id="androidNote"><b>Na entrega:</b> fundo e frente separados, 108 × 108 dp (512 × 512 px no template). O V fica dentro do círculo central de 66 dp; o resto pode ser cortado.</p>
+        <p class="note" id="androidNote"><b>Na entrega:</b> fundo e frente separados, 108 × 108 dp (512 × 512 px no template). Os três V ficam dentro do círculo central de 66 dp; o resto pode ser cortado.</p>
       </div>
       <div class="stage">
         <figure>
@@ -314,7 +314,7 @@ LaunchedEffect(progress) { if (progress == 1f) onFinish() }</code></pre></div>
         <div class="howto">
           <h3>Como este arquivo foi feito</h3>
           <p>Sem After Effects: a animação mora em <code>src/timeline.js</code> (keyframes e curvas) e o script <code>build-lottie.js</code> gera o JSON. Os celulares desta apresentação são desenhados pela mesma timeline — o que você vê aqui é o que vai no app.</p>
-          <p>Usa só recursos que todas as bibliotecas suportam: formas, <i>trim path</i>, opacidade, posição e escala. Sem fontes, imagens ou efeitos.</p>
+          <p>Usa só recursos que todas as bibliotecas suportam: formas, <i>trim path</i>, opacidade, posição, escala e rotação. Sem fontes, imagens ou efeitos.</p>
         </div>
         <p class="note"><b>Bibliotecas:</b> <code>lottie-ios</code>, <code>lottie-android</code>, <code>lottie-react-native</code> e <code>lottie-web</code>. Para conferir o arquivo sem código, arraste o JSON no preview do LottieFiles.</p>
       </div>
@@ -367,7 +367,7 @@ LaunchedEffect(progress) { if (progress == 1f) onFinish() }</code></pre></div>
         </div>
       </div>
       <div class="files-foot">
-        <p class="note"><b>Atenção:</b> no Figma, o <i>android-icon-monochrome</i> tem fundo verde. O Android usa essa camada só como máscara — com fundo, o ícone temático vira um quadrado liso. Exporte o monocromático só com o V.</p>
+        <p class="note"><b>Atenção:</b> no Figma, o <i>android-icon-monochrome</i> tem fundo verde. O Android usa essa camada só como máscara — com fundo, o ícone temático vira um quadrado liso. Exporte o monocromático só com os três V.</p>
         <p class="src">Fonte: <a href="https://www.figma.com/design/LrUBqGUVeHqBLu9kI1FTGQ/Victa---Design-System?node-id=490-2" target="_blank" rel="noopener">Victa · Design System › 10 - App assets</a></p>
       </div>
     </div>
@@ -387,6 +387,15 @@ LaunchedEffect(progress) { if (progress == 1f) onFinish() }</code></pre></div>
     <g id="v-glyph">
       <path d="M309.25 212.977C302.228 229.299 295.206 245.621 288.184 261.943C286.209 266.571 284.233 271.198 282.257 275.825C281.562 277.524 280.547 279.99 279.294 282.977C277.723 286.722 277.406 287.408 276.982 288.17C276.982 288.17 274.99 292.306 270.54 295.373C263.801 300.017 255.865 299.896 246.932 299.977C249.083 294.702 281.154 215.833 282.361 212.977H309.25Z"/>
       <path d="M249.339 266.326H227.749L202.57 217.138C201.59 215.236 202.981 212.977 205.133 212.977H221.915C225.246 212.977 228.291 214.846 229.78 217.804L251.915 262.188C252.872 264.089 251.48 266.326 249.339 266.326Z"/>
+    </g>
+    <!-- assinatura do isotipo (ícone do app): três V, posição do template Android de 512 -->
+    <g id="icon-glyph">
+      <path d="M309.625 192.185C304.934 203.09 300.244 213.996 295.554 224.901C294.234 227.993 292.915 231.085 291.595 234.177C291.131 235.312 290.453 236.96 289.616 238.955C288.567 241.458 288.355 241.916 288.071 242.425C288.071 242.425 286.741 245.189 283.769 247.238C279.268 250.341 273.967 250.26 268 250.314C269.437 246.789 290.858 194.093 291.664 192.185H309.625Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M269.5 227.797H255.093L238.291 194.942C237.638 193.671 238.566 192.163 240.002 192.163H251.2C253.423 192.163 255.454 193.411 256.448 195.387L271.218 225.033C271.857 226.303 270.928 227.797 269.5 227.797Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M238.078 319.769C242.768 308.863 247.459 297.958 252.149 287.052C253.468 283.96 254.788 280.869 256.108 277.777C256.571 276.642 257.25 274.994 258.087 272.998C259.136 270.496 259.348 270.038 259.631 269.529C259.631 269.529 260.962 266.765 263.934 264.716C268.435 261.613 273.736 261.694 279.703 261.64C278.265 265.164 256.844 317.861 256.038 319.769H238.078Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M278.203 284.157H292.61L309.412 317.012C310.065 318.283 309.137 319.791 307.701 319.791H296.503C294.28 319.791 292.249 318.543 291.255 316.567L276.485 286.921C275.846 285.651 276.775 284.157 278.203 284.157Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M199.459 217.586C210.43 222.249 221.4 226.911 232.371 231.574C235.481 232.885 238.591 234.197 241.702 235.509C242.843 235.97 244.501 236.645 246.508 237.476C249.026 238.519 249.487 238.73 249.999 239.012C249.999 239.012 252.779 240.334 254.84 243.289C257.962 247.763 257.88 253.033 257.935 258.964C254.389 257.536 201.379 236.242 199.459 235.44V217.586Z" fill="currentColor"/>
+      <path d="M235.284 257.472V271.794L202.233 288.496C200.955 289.146 199.438 288.223 199.438 286.796V275.664C199.438 273.454 200.693 271.435 202.681 270.447L232.504 255.764C233.781 255.129 235.284 256.053 235.284 257.472Z" fill="currentColor"/>
     </g>
   </defs>
 </svg>
