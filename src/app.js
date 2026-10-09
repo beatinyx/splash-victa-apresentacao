@@ -11,14 +11,14 @@
 
   // Fases da animação: [a, b] é o intervalo real; [s0, s1] é a faixa sem sobreposição usada na barra.
   const PHASES = [
-    { n: 1, name: 'Contorno', a: 150, b: 950, s0: 0, s1: 900, c: '#C5F167',
-      d: 'As duas hastes do V são desenhadas como traço, de cima para baixo. A haste curta sai 150 ms depois.' },
+    { n: 1, name: 'Contorno', a: 150, b: 1150, s0: 0, s1: 900, c: '#C5F167',
+      d: 'Os três V do ícone são desenhados como traço, um a cada 100 ms: o da marca, o de cima e o de baixo.' },
     { n: 2, name: 'Preenchimento', a: 900, b: 1300, s0: 900, s1: 1100, c: '#42CF00',
-      d: 'O V é preenchido em verde mata enquanto o traço se dissolve.' },
+      d: 'Só o V da marca é preenchido em verde mata; o traço dele se dissolve.' },
     { n: 3, name: 'Pulso e anel', a: 1100, b: 1750, s0: 1100, s1: 1450, c: '#8521AB',
-      d: 'O V cresce 7% e volta. Um anel neon se abre do centro e some.' },
+      d: 'A assinatura cresce 7% e volta. Um anel neon se abre do centro do V da marca e some.' },
     { n: 4, name: 'Câmera', a: 1450, b: 2050, s0: 1450, s1: 1600, c: '#007C27',
-      d: 'A câmera recua e desliza do isotipo (80 pt de altura) para o logotipo (180 pt de largura).' },
+      d: 'Os V em contorno somem, o V da marca desvira e a câmera desliza do ícone para o logotipo (180 pt de largura).' },
     { n: 5, name: 'Letras', a: 1600, b: 2260, s0: 1600, s1: 2260, c: '#00512A',
       d: 'i, c, t e a saem de trás do V, uma a cada 80 ms, deslizando para o lugar.' },
   ];
@@ -152,12 +152,15 @@
   players[3] = anatomy;
 
   const ROWS = [
-    ['vLong.trim', 'Haste longa · traço', 1],
-    ['vShort.trim', 'Haste curta · traço', 1],
+    ['v.vLong.trim', 'V da marca · traço', 1],
+    ['vTop.vLong.trim', 'V de cima · traço', 1],
+    ['vBottom.vLong.trim', 'V de baixo · traço', 1],
     ['v.fill', 'V · preenchimento', 2],
     ['v.stroke', 'V · traço some', 2],
     ['ring.o', 'Anel neon', 3],
-    ['cam.scale', 'Escala do V', 3],
+    ['cam.scale', 'Escala', 3],
+    ['outlines.o', 'V em contorno somem', 4],
+    ['v.rot', 'V da marca desvira', 4],
     ['cam.anchor', 'Câmera → logotipo', 4],
     ['i.o', 'Letra i', 5],
     ['c.o', 'Letra c', 5],
@@ -305,7 +308,7 @@
   const adaptiveHTML = () => `
     <div class="lyr bg"><img src="assets/icons/android-background.svg" alt=""></div>
     <div class="lyr fg"><img src="assets/icons/android-foreground.svg" alt=""></div>
-    <div class="lyr themed"><svg viewBox="0 0 512 512" style="fill:#2F4A25"><use href="#v-glyph"/></svg></div>
+    <div class="lyr themed"><svg viewBox="0 0 512 512" style="color:#2F4A25"><use href="#icon-glyph"/></svg></div>
     <span class="safe"></span>`;
   const big = $('#adaptiveBig');
   big.innerHTML = adaptiveHTML();
@@ -336,8 +339,8 @@
     home.classList.toggle('themed-on', themed);
     $('#androidHomeCaption').textContent = `Tela de início · recorte em ${MASK_NAMES[mask]}${themed ? ' · ícones temáticos' : ''}`;
     $('#androidNote').innerHTML = themed
-      ? '<b>Ícone temático:</b> o Android usa a camada monocromática só como <b>máscara</b> e pinta com as cores do papel de parede. Por isso ela deve ter só o V, sem fundo.'
-      : '<b>Na entrega:</b> fundo e frente separados, 108 × 108 dp (512 × 512 px no template). O V fica dentro do círculo central de 66 dp; o resto pode ser cortado.';
+      ? '<b>Ícone temático:</b> o Android usa a camada monocromática só como <b>máscara</b> e pinta com as cores do papel de parede. Por isso ela deve ter só os três V, sem fundo.'
+      : '<b>Na entrega:</b> fundo e frente separados, 108 × 108 dp (512 × 512 px no template). Os três V ficam dentro do círculo central de 66 dp; o resto pode ser cortado.';
   }
   $$('#maskSeg [role="radio"]').forEach((b) => (b.onclick = () => {
     mask = b.dataset.mask;
